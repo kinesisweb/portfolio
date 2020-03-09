@@ -176,7 +176,7 @@ export default {
 
 .hero-overlay {
 	position: absolute;
-	width: 100%;
+	width: calc(100% - 40px);
 	height: 90%;
 	display: flex;
 	align-items: flex-start;
@@ -185,12 +185,10 @@ export default {
 	font-family: 'Consolas', 'Monaco', 'Lucida Console', 'Courier New',
 		monospace;
 	opacity: 0.5;
-	transform: rotate(-5deg);
 	flex-flow: column;
 
 	&.right {
 		align-items: flex-end;
-		margin-left: -10%;
 	}
 
 	.hero-overlay-title {

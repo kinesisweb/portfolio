@@ -34,6 +34,11 @@
 					</v-btn>
 				</v-col>
 			</v-row>
+			<v-row>
+				<v-col cols="12" class="text-center">
+					&copy;2020 Craig Riley
+				</v-col>
+			</v-row>
 		</v-container>
 	</footer>
 </template>

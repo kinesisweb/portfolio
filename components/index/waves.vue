@@ -79,11 +79,11 @@ export default {
 				this.nodes.push(temp);
 			}
 		},
-		bounce(nodeArr) {
-			nodeArr[1] =
-				(this.waveHeight / 2) * Math.sin(nodeArr[2] / 20) +
+		bounce(nodeArray) {
+			nodeArray[1] =
+				(this.waveHeight / 2) * Math.sin(nodeArray[2] / 20) +
 				this.cvs.height / 2;
-			nodeArr[2] = nodeArr[2] + nodeArr[3];
+			nodeArray[2] = nodeArray[2] + nodeArray[3];
 		},
 		drawWave(obj) {
 			const diff = function(a, b) {

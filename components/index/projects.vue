@@ -4,7 +4,7 @@
 			<v-card light flat color="transparent">
 				<v-card-title
 					class="justify-center font-weight-thin display-2 my-8 text-uppercase"
-					><span class="recent-text">Recent </span
+					><span class="recent-text">Recent&nbsp;</span
 					>Projects</v-card-title
 				>
 				<v-card-text>

@@ -4,7 +4,7 @@
 		v-intersect.quiet.once="{
 			handler: intersect,
 			options: {
-				threshold: [0, 0.5, 1.0]
+				threshold: [0, 0.5, 1]
 			}
 		}"
 		class="nuxt-appear hidden"

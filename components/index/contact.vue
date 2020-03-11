@@ -11,6 +11,7 @@
 					>
 						<v-text-field
 							v-model="name"
+							color="secondary"
 							class="mb-4"
 							outlined
 							light
@@ -19,6 +20,7 @@
 						></v-text-field>
 						<v-text-field
 							v-model="email"
+							color="secondary"
 							class="mb-4"
 							outlined
 							light
@@ -28,6 +30,7 @@
 						></v-text-field>
 						<v-textarea
 							v-model="message"
+							color="secondary"
 							light
 							outlined
 							label="Message"

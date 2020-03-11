@@ -13,13 +13,14 @@ export default {
 			{
 				hid: 'description',
 				name: 'description',
-				content: process.env.npm_package_description || ''
+				content:
+					'Portfolio website for junior web/software developer Craig Riley, based in the UK. Programmer of Javascript, NodeJS, CSS, SCSS, Vue, Nuxt, Vuetify and Wordpress / PHP. Currently learning C#.'
 			}
 		],
 		link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
 	},
 	loading: { color: '#fff' },
-	css: ['@/scss/transitions.scss'],
+	css: [],
 	plugins: ['@/plugins/global-components', '@/plugins/slide-up-down'],
 	buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
 	modules: ['@nuxtjs/axios'],
@@ -35,7 +36,6 @@ export default {
 		}
 	},
 	vuetify: {
-		customVariables: ['~/assets/variables.scss'],
 		theme: {
 			dark: true,
 			themes: {

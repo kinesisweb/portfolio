@@ -37,6 +37,11 @@ export default {
 		height: 100%;
 		content: attr(data-label);
 		background: rgba(255, 143, 0, 0.8);
+
+		@media only screen and (max-width: 600px) {
+			font-size: 0.7em;
+			width: 100px;
+		}
 	}
 }
 </style>

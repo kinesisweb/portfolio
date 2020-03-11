@@ -1,15 +1,26 @@
 <template>
-	<v-app dark>
-		<h1 v-if="error.statusCode === 404">
-			{{ pageNotFound }}
-		</h1>
-		<h1 v-else>
-			{{ otherError }}
-		</h1>
-		<NuxtLink to="/">
-			Home page
-		</NuxtLink>
-	</v-app>
+	<div>
+		<v-app-bar app color="#333c58">
+			<v-toolbar-title>Craig Riley</v-toolbar-title>
+		</v-app-bar>
+		<v-content light style="color: black" class="text-center mt-10">
+			<div v-if="error.statusCode === 404" class="my-10">
+				<h1>
+					{{ pageNotFound }}
+				</h1>
+				<v-subheader light class="justify-center"
+					>Congratulations! You got lost on a single-page
+					website.</v-subheader
+				>
+			</div>
+			<h1 v-else>
+				{{ otherError }}
+			</h1>
+			<v-btn x-large nuxt to="/" color="secondary">
+				<v-icon x-large class="mr-4">mdi-home</v-icon> Head Back
+			</v-btn>
+		</v-content>
+	</div>
 </template>
 
 <script>

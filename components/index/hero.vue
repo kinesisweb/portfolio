@@ -166,6 +166,7 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
+	min-height: 570px;
 	background: linear-gradient(
 			to bottom,
 			rgba(51, 60, 88, 0.2) 0%,
@@ -183,10 +184,8 @@ export default {
 
 .hero-activator-container {
 	text-align: center;
-}
 
-@media only screen and (max-width: 767px) {
-	.hero-activator-container {
+	@media only screen and (max-width: 767px) {
 		display: none;
 	}
 }
@@ -225,6 +224,7 @@ export default {
 
 .hero-stack-container {
 	position: absolute;
+	z-index: 1;
 	top: 0;
 	left: 0;
 	right: 0;

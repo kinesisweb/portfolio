@@ -1,6 +1,10 @@
 <template>
 	<footer>
-		<div class="text-center mt-n6" style="position:absolute; top: 0">
+		<div
+			v-if="$route.fullPath === '/'"
+			class="text-center mt-n6"
+			style="position:absolute; top: 0"
+		>
 			<v-btn tile x-large dark @click="toTop">
 				<v-icon x-large>mdi-arrow-up-bold-hexagon-outline</v-icon>
 				Return to Top

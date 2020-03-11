@@ -114,7 +114,6 @@ export default {
 				.post('/api/contact', data)
 				.then((res) => {
 					this.loading = false;
-					console.log(res.status);
 					if (res.status === 200) {
 						this.$refs['submit-form'].reset();
 						this.alert.type = 'success';

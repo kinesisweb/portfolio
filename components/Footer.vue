@@ -9,12 +9,22 @@
 		<v-container class="mt-10">
 			<v-row class="justify-center">
 				<v-col cols="auto">
-					<v-btn tile x-large>
+					<v-btn
+						tile
+						x-large
+						href="https://github.com/kinesisweb"
+						target="_blank"
+					>
 						<v-icon x-large>mdi-github</v-icon>
 					</v-btn>
 				</v-col>
 				<v-col cols="auto">
-					<v-btn tile x-large>
+					<v-btn
+						tile
+						x-large
+						href="https://www.linkedin.com/in/craig-riley-developer/"
+						target="_blank"
+					>
 						<v-icon x-large>mdi-linkedin</v-icon>
 					</v-btn>
 				</v-col>

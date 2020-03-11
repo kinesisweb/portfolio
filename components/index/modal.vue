@@ -1,49 +1,51 @@
 <template>
-	<v-dialog
-		v-if="active"
-		:value="show"
-		width="700"
-		class="modal-dialog"
-		persistent
-		@change="$emit('close')"
-		@click:outside="$emit('close')"
-	>
-		<v-card>
-			<v-card-title class="headline" primary-title>
-				{{ modals[active].title }}
-			</v-card-title>
+	<aside id="modal">
+		<v-dialog
+			v-if="active"
+			:value="show"
+			width="700"
+			content-class="modal-dialog"
+			persistent
+			@change="$emit('close')"
+			@click:outside="$emit('close')"
+		>
+			<v-card>
+				<v-card-title class="headline" primary-title>
+					{{ modals[active].title }}
+				</v-card-title>
 
-			<v-card-text>
-				<v-carousel hide-delimiters>
-					<v-carousel-item
-						v-for="(item, i) in modals[active].carousel"
-						:key="i"
-						:src="item"
-					></v-carousel-item>
-				</v-carousel>
-				<v-divider />
-				<v-subheader>Challenges</v-subheader>
-				<v-list class="project-challenges mt-n4">
-					<v-list-item
-						v-for="(item, i) in modals[active].challenges"
-						:key="i"
-						><span :class="{ 'alt-text': i % 2 === 0 }">{{
-							item
-						}}</span></v-list-item
-					>
-				</v-list>
-			</v-card-text>
+				<v-card-text>
+					<v-carousel hide-delimiters>
+						<v-carousel-item
+							v-for="(item, i) in modals[active].carousel"
+							:key="i"
+							:src="item"
+						></v-carousel-item>
+					</v-carousel>
+					<v-divider />
+					<v-subheader>Challenges</v-subheader>
+					<v-list class="project-challenges mt-n4">
+						<v-list-item
+							v-for="(item, i) in modals[active].challenges"
+							:key="i"
+							><span :class="{ 'alt-text': i % 2 === 0 }">{{
+								item
+							}}</span></v-list-item
+						>
+					</v-list>
+				</v-card-text>
 
-			<v-divider></v-divider>
+				<v-divider></v-divider>
 
-			<v-card-actions>
-				<v-spacer></v-spacer>
-				<v-btn color="secondary" text @click="$emit('close')">
-					Close
-				</v-btn>
-			</v-card-actions>
-		</v-card>
-	</v-dialog>
+				<v-card-actions>
+					<v-spacer></v-spacer>
+					<v-btn color="secondary" text @click="$emit('close')">
+						Close
+					</v-btn>
+				</v-card-actions>
+			</v-card>
+		</v-dialog>
+	</aside>
 </template>
 
 <script>
@@ -77,11 +79,13 @@ export default {
 				kinesis: {
 					title: 'Kinesis Computer Services',
 					carousel: [
-						require('@/assets/projects/lazyjourno.png'),
-						require('@/assets/projects/lazyjourno2.png'),
-						require('@/assets/projects/lazyjourno3.png')
+						require('@/assets/projects/kinesis.png'),
+						require('@/assets/projects/kinesis2.png'),
+						require('@/assets/projects/kinesis3.png')
 					],
-					challenges: ['Challenge 1', 'Challenge 2', 'Challenge 3']
+					challenges: [
+						'Not satisfied with any "off the shelf" multi-dimensional image galleries, there was a need to create a new one from scratch which would allow previews of adjacent galleries/images and which would respond to the viewport of the browser.'
+					]
 				},
 				lazyjourno: {
 					title: 'Lazy Journo',
@@ -100,11 +104,17 @@ export default {
 				renandrain: {
 					title: 'Ren and Rain Marketing',
 					carousel: [
-						require('@/assets/projects/lazyjourno.png'),
-						require('@/assets/projects/lazyjourno2.png'),
-						require('@/assets/projects/lazyjourno3.png')
+						require('@/assets/projects/renandrain.png'),
+						require('@/assets/projects/renandrain2.png'),
+						require('@/assets/projects/renandrain3.png'),
+						require('@/assets/projects/renandrain4.png')
 					],
-					challenges: ['Challenge 1', 'Challenge 2', 'Challenge 3']
+					challenges: [
+						'Creating a Vue component that could take a provided image, chop it in a designated number of tiles across both axes and then overlay HTML on those tiles, all while remaining responsive to viewport resizing.',
+						'Implementing a light CMS to enable the site operator to add new galleries at their own inclination without developer intervention.',
+						'Integrating the Stripe payment API (to be rolled out at a future date).',
+						'Use of a custom email verification system which functions purely via link.'
+					]
 				},
 				tictactoe: {
 					title: 'Noughts & Crosses Game',
@@ -134,12 +144,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+@media only screen and (max-width: 700px) {
+	.modal-dialog {
+		margin: 0;
+	}
+}
+
 .modal-dialog {
 	max-width: 100vw;
 }
 
 .project-challenges span.alt-text {
-	color: #ff8f00 !important;
+	color: #2fbbff !important;
 }
 </style>

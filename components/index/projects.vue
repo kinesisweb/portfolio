@@ -4,6 +4,7 @@
 			<v-card light flat color="transparent">
 				<v-card-title
 					class="justify-center font-weight-thin display-2 my-8 text-uppercase"
+					><span class="recent-text">Recent </span
 					>Projects</v-card-title
 				>
 				<v-card-text>
@@ -59,5 +60,11 @@ export default {
 section#projects {
 	background-color: #eee;
 	min-height: 50vh;
+}
+
+@media only screen and (max-width: 767px) {
+	.recent-text {
+		display: none;
+	}
 }
 </style>

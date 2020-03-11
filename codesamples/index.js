@@ -1,4 +1,132 @@
 export default {
+	vuetify: `
+<v-card>
+	<v-toolbar flat class="mb-4">
+		<v-toolbar-title>{{ title }}</v-toolbar-title>
+		<v-spacer />
+		<v-btn icon>
+			<v-icon @click="$refs.calendar.prev()">mdi-chevron-left</v-icon>
+		</v-btn>
+		<v-btn icon>
+			<v-icon @click="$refs.calendar.next()">mdi-chevron-right</v-icon>
+		</v-btn>
+	</v-toolbar>
+	<v-calendar
+		style="min-height: 400px;"
+		v-model="start"
+		color="primary"
+		ref="calendar"
+		@click:event="editEvent"
+		@click:date="openPriceOverlay"
+		:events="filteredEvents"
+		:end="calendarSpan"
+		:event-color="getEventColor"
+		:weekdays="[6, 0, 1, 2, 3, 4, 5]"
+	></v-calendar>
+	<v-card v-if="role === 'admin'" class="my-4">
+		<comp-admin-add-booking :initialStart="start" />
+
+		<comp-admin-bookings
+			ref="admin_bookings"
+			:active="overlays.booking"
+			:role="role"
+			:current="currentBooking"
+			@close="overlays.booking = false"
+		/>
+
+		<comp-admin-prices
+			ref="admin_prices"
+			:role="role"
+			:current="currentPrice"
+			:active="overlays.price"
+			@close="overlays.price = false"
+		/>
+	</v-card>
+</v-card>`,
+	dotnet: `
+private void ShowBranches()
+{
+	try
+	{
+		string query = "select * from Branches";
+		SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlconnection);
+
+		using (sqlDataAdapter)
+		{
+			DataTable branchTable = new DataTable();
+
+			sqlDataAdapter.Fill(branchTable);
+			listBranches.DisplayMemberPath = "Location";
+			listBranches.SelectedValuePath = "Id";
+			listBranches.ItemsSource = branchTable.DefaultView;
+
+		}
+	}
+	catch (Exception e) 
+	{
+		MessageBox.Show(e.ToString());
+	}
+}
+`,
+	html: `
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Craig Riley: Developer</title>
+		<meta name="description" content="Portfolio website for Craig Riley">
+		<meta name="author" content="Craig Riley">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/styles.css?v=1.0">
+
+	</head>
+
+	<body>
+		<main>
+			<section id="headlines">
+				<article>
+					<header><h3>The News</h3></header>
+					<div class="news-article">More detail about the news</div>
+						<figure>
+							<picture>
+								<source srcset="img_smallflower.jpg" media="(max-width: 600px)">
+								<source srcset="img_flowers.jpg" media="(max-width: 1500px)">
+								<source srcset="flowers.jpg">
+								<img src="img_smallflower.jpg" alt="Flowers">
+							</picture> 
+						</figure>
+					<footer><a href="#">Comment</a></footer>
+				</article>
+			</section>
+		</main>
+		<nav>
+			<ul>
+				<li>Here</li>
+				<li>There</li>
+			</ul>
+		</nav>
+		<script src="js/scripts.js"></script>
+	</body>
+</html>	
+`,
+	mysql: `
+CREATE TABLE Subscribers (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) 
+
+"SELECT id, firstname, lastname FROM Subscribers WHERE lastname='Riley'
+
+SELECT Messages.messageID, Subscribers.lastname, Subscribers.messagedate
+FROM Messages
+INNER JOIN Subscribers ON Messages.memberID=Subscribers.id;`,
 	git: `
 git init .
 git config --global user.name "Craig Riley"

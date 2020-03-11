@@ -4,7 +4,8 @@
 			v-for="project in projects"
 			:key="project.name"
 			class="d-flex child-flex"
-			cols="4"
+			cols="12"
+			md="4"
 		>
 			<nuxt-appear name="slide-from-bottom" :delay="project.delay">
 				<v-hover v-slot:default="{ hover }">
@@ -41,7 +42,14 @@
 										</div>
 									</div>
 									<div>
-										<v-btn tile x-large color="white">
+										<v-btn
+											v-if="project.git"
+											tile
+											x-large
+											color="white"
+											:href="project.git"
+											target="_blank"
+										>
 											<v-icon x-large>mdi-github</v-icon>
 										</v-btn>
 										<v-btn
@@ -75,7 +83,8 @@ export default {
 					name: 'Lazy Journo',
 					delay: 1000,
 					src: require('@/assets/projects/lazyjourno.png'),
-					stack: 'Wordpress / PHP'
+					stack: 'Wordpress / PHP',
+					git: 'https://github.com/kinesisweb/lazyjourno'
 				},
 				{
 					id: 'proelectric',
@@ -89,21 +98,24 @@ export default {
 					name: 'Ren & Rain Marketing',
 					delay: 600,
 					src: require('@/assets/projects/renandrain.png'),
-					stack: 'NodeJS / Vue / MySQL'
+					stack: 'NodeJS / Vue / MySQL',
+					git: 'https://github.com/kinesisweb/renandrain'
 				},
 				{
 					id: 'vuantecca',
 					name: 'Vu an Tecca',
 					delay: 400,
 					src: require('@/assets/projects/vuantecca.png'),
-					stack: 'NodeJS / Nuxt'
+					stack: 'NodeJS / Nuxt',
+					git: 'https://github.com/kinesisweb/Vu_an_Tecca'
 				},
 				{
 					id: 'tictactoe',
 					name: 'Noughts & Crosses',
 					delay: 200,
 					src: require('@/assets/projects/noughtscrosses.png'),
-					stack: 'Vanilla JS'
+					stack: 'Vanilla JS',
+					git: 'https://github.com/kinesisweb/tic-tac-toe'
 				},
 				{
 					id: 'kinesis',

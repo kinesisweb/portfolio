@@ -1,7 +1,9 @@
 <template>
-	<div class="canvas-wrap">
-		<canvas id="wave-canvas"></canvas>
-	</div>
+	<section id="canvas-waves">
+		<div class="canvas-wrap">
+			<canvas id="wave-canvas"></canvas>
+		</div>
+	</section>
 </template>
 
 <script>

@@ -1,71 +1,73 @@
 <template>
-	<v-container
-		fluid
-		class="ma-0 pa-0 hero"
-		style="min-height: calc(100vh - 60px)"
-	>
-		<v-fade-transition>
-			<div
-				v-show="showOverlay"
-				v-if="activeStack"
-				class="hero-overlay"
-				:class="{
-					right: overlayContent[activeStack].right === true
-				}"
-			>
-				<div class="hero-overlay-title">
-					{{ overlayContent[activeStack].title }}
+	<section id="hero">
+		<v-container
+			fluid
+			class="ma-0 pa-0 hero"
+			style="min-height: calc(100vh - 60px)"
+		>
+			<v-fade-transition>
+				<div
+					v-show="showOverlay"
+					v-if="activeStack"
+					class="hero-overlay"
+					:class="{
+						right: overlayContent[activeStack].right === true
+					}"
+				>
+					<div class="hero-overlay-title">
+						{{ overlayContent[activeStack].title }}
+					</div>
+					<div class="hero-overlay-content">
+						<pre>{{ overlayContent[activeStack].content }}</pre>
+					</div>
 				</div>
-				<div class="hero-overlay-content">
-					<pre>{{ overlayContent[activeStack].content }}</pre>
-				</div>
-			</div>
-		</v-fade-transition>
-		<div>
-			<div class="hero-text mb-4">Hi, I'm Craig</div>
-			<div class="hero-activator-container mt-4">
-				<v-fab-transition>
-					<v-btn
-						v-show="!hidden"
-						:class="{ glow: !showStack }"
-						class="hero-activator"
-						light
-						x-large
-						@click="showStack = !showStack"
-					>
-						<v-icon>mdi-stack-overflow</v-icon>
-					</v-btn>
-				</v-fab-transition>
-			</div>
-		</div>
-		<div class="hero-stack-container" :class="{ active: showStack }">
-			<transition name="scale-bottom-left">
-				<div v-show="showStack" class="hero-stack">
-					<v-hover
-						v-for="(item, n) in stack"
-						v-slot:default="{ hover }"
-						:key="item.id"
-					>
+			</v-fade-transition>
+			<div>
+				<div class="hero-text mb-4">Hi, I'm Craig</div>
+				<div class="hero-activator-container mt-4">
+					<v-fab-transition>
 						<v-btn
-							:id="'stack-' + item.id"
-							class="stack-icon"
-							fab
-							:color="hover ? '#b36605' : 'secondary'"
-							dark
-							:style="{
-								transform: `rotate(${n *
-									circleDegrees}deg) translate(250px) rotate(-${n *
-									circleDegrees}deg)`
-							}"
-							@mouseover="highlight(item.id)"
-							@mouseleave="showOverlay = false"
-							><v-icon>mdi-{{ item.icon }}</v-icon>
+							v-show="!hidden"
+							:class="{ glow: !showStack }"
+							class="hero-activator"
+							light
+							x-large
+							@click="showStack = !showStack"
+						>
+							<v-icon>mdi-stack-overflow</v-icon>
 						</v-btn>
-					</v-hover>
+					</v-fab-transition>
 				</div>
-			</transition>
-		</div>
-	</v-container>
+			</div>
+			<div class="hero-stack-container" :class="{ active: showStack }">
+				<transition name="scale-bottom-left">
+					<div v-show="showStack" class="hero-stack">
+						<v-hover
+							v-for="(item, n) in stack"
+							v-slot:default="{ hover }"
+							:key="item.id"
+						>
+							<v-btn
+								:id="'stack-' + item.id"
+								class="stack-icon"
+								fab
+								:color="hover ? '#b36605' : 'secondary'"
+								dark
+								:style="{
+									transform: `rotate(${n *
+										circleDegrees}deg) translate(250px) rotate(-${n *
+										circleDegrees}deg)`
+								}"
+								@mouseover="highlight(item.id)"
+								@mouseleave="showOverlay = false"
+								><v-icon>mdi-{{ item.icon }}</v-icon>
+							</v-btn>
+						</v-hover>
+					</div>
+				</transition>
+			</div>
+		</v-container>
+	</section>
 </template>
 
 <script>
@@ -93,7 +95,7 @@ export default {
 			overlayContent: {
 				mysql: {
 					title: 'MySQL',
-					content: `INSERT INTO`,
+					content: sample.mysql,
 					right: true
 				},
 				vue: {
@@ -102,11 +104,13 @@ export default {
 					content: sample.vue
 				},
 				vuetify: {
-					title: 'Vuetify'
+					title: 'Vuetify',
+					content: sample.vuetify
 				},
 				html: {
 					title: 'HTML5',
-					right: true
+					right: true,
+					content: sample.html
 				},
 				nuxt: {
 					title: 'Nuxt',
@@ -132,7 +136,8 @@ export default {
 				},
 				dotnet: {
 					title: 'C# .NET',
-					right: true
+					right: true,
+					content: sample.dotnet
 				},
 				js: {
 					title: 'Javascript',
@@ -178,6 +183,12 @@ export default {
 
 .hero-activator-container {
 	text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+	.hero-activator-container {
+		display: none;
+	}
 }
 
 .hero-overlay {

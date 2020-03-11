@@ -1,69 +1,76 @@
 <template>
-	<v-container class="my-8">
-		<v-row class="mb-8">
-			<v-col cols="12" md="6" class="mx-auto text-right">
-				<v-form
-					ref="submit-form"
-					v-model="isValid"
-					light
-					@submit.prevent="send"
-				>
-					<v-text-field
-						v-model="name"
-						class="mb-4"
-						outlined
+	<section id="contact">
+		<v-container class="my-8">
+			<v-row class="mb-8">
+				<v-col cols="12" md="6" class="mx-auto text-right">
+					<v-form
+						ref="submit-form"
+						v-model="isValid"
 						light
-						label="Your name"
-						:rules="[val.required]"
-					></v-text-field>
-					<v-text-field
-						v-model="email"
-						class="mb-4"
-						outlined
-						light
-						label="Email address"
-						:rules="[val.required, val.email]"
-						validate-on-blur
-					></v-text-field>
-					<v-textarea
-						v-model="message"
-						light
-						outlined
-						label="Message"
-						:rules="[val.required]"
-					></v-textarea>
-					<slide-up-down :active="alert.show">
-						<v-alert
-							:prominent="alert.type === 'error'"
-							:dense="alert.type === 'success'"
-							:type="alert.type"
-						>
-							<v-row v-if="alert.type === 'error'" align="center">
-								<v-col class="grow">{{ alert.content }}</v-col>
-								<v-col class="shrink">
-									<v-btn @click="alert.show = false"
-										>Close</v-btn
-									>
-								</v-col>
-							</v-row>
-							<template v-else>
-								{{ alert.content }}
-							</template>
-						</v-alert>
-					</slide-up-down>
-					<v-btn
-						type="submit"
-						:loading="loading"
-						:disabled="loading"
-						color="secondary"
-						light
+						@submit.prevent="send"
 					>
-						Send Message
-					</v-btn>
-				</v-form>
-			</v-col>
-		</v-row>
-	</v-container>
+						<v-text-field
+							v-model="name"
+							class="mb-4"
+							outlined
+							light
+							label="Your name"
+							:rules="[val.required]"
+						></v-text-field>
+						<v-text-field
+							v-model="email"
+							class="mb-4"
+							outlined
+							light
+							label="Email address"
+							:rules="[val.required, val.email]"
+							validate-on-blur
+						></v-text-field>
+						<v-textarea
+							v-model="message"
+							light
+							outlined
+							label="Message"
+							:rules="[val.required]"
+						></v-textarea>
+						<slide-up-down :active="alert.show">
+							<v-alert
+								:prominent="alert.type === 'error'"
+								:dense="alert.type === 'success'"
+								:type="alert.type"
+							>
+								<v-row
+									v-if="alert.type === 'error'"
+									align="center"
+								>
+									<v-col class="grow">{{
+										alert.content
+									}}</v-col>
+									<v-col class="shrink">
+										<v-btn @click="alert.show = false"
+											>Close</v-btn
+										>
+									</v-col>
+								</v-row>
+								<template v-else>
+									{{ alert.content }}
+								</template>
+							</v-alert>
+						</slide-up-down>
+						<v-btn
+							type="submit"
+							:loading="loading"
+							:disabled="loading"
+							color="secondary"
+							light
+						>
+							Send Message
+						</v-btn>
+					</v-form>
+				</v-col>
+			</v-row>
+		</v-container>
+	</section>
 </template>
 
 <script>
@@ -75,9 +82,9 @@ export default {
 				type: null,
 				content: 'Message sent. Thank you.'
 			},
-			name: 'Craig Riley',
-			email: 'hello@craigriley.uk',
-			message: 'This is a test.',
+			name: '',
+			email: '',
+			message: '',
 			loading: false,
 			isValid: false,
 			val: {

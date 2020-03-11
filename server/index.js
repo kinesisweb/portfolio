@@ -5,7 +5,7 @@ const contact = require('../../lib/email');
 
 developer.use(express.static('portfolio/dist'));
 
-developer.post('/contact', async (req, res) => {
+developer.post('/api/contact', async (req, res) => {
 	const fields = await common.parseForm(req, res);
 
 	const auth = {

@@ -1,13 +1,19 @@
 <template>
-	<v-app>
-		<v-content>
+	<v-app light>
+		<v-content class="main-content">
 			<nuxt />
 		</v-content>
+		<comp-footer />
 	</v-app>
 </template>
 
 <script>
+import CompFooter from '@/components/Footer';
+
 export default {
+	components: {
+		CompFooter
+	},
 	data() {
 		return {
 			drawer: false,
@@ -27,3 +33,9 @@ export default {
 	}
 };
 </script>
+
+<style scoped>
+.main-content {
+	background: #f9f9fa;
+}
+</style>

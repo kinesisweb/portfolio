@@ -18,7 +18,7 @@ export default {
 		colours: {
 			type: Array,
 			default: () => {
-				return ['#f80000', '#00f800', '#0000f8'];
+				return ['#ff8f00', '#bdc0c9', '#f9f9fa'];
 			}
 		}
 	},

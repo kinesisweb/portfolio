@@ -7,6 +7,7 @@
 * Nuxt / Vue
 * Vuetify
 * CSS / SCSS
+* HTML5 / Canvas
 
 ## Where?
 

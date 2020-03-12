@@ -35,6 +35,19 @@ export default {
 					: 'https://craigriley.uk'
 		}
 	},
+	router: {
+		extendRoutes(routes, resolve) {
+			routes.push({
+				name: '404',
+				path: '*',
+				component: resolve(__dirname, 'layouts/error.vue'),
+				params: { status: 404 }
+			});
+		}
+	},
+	generate: {
+		routes: ['404']
+	},
 	vuetify: {
 		theme: {
 			dark: true,

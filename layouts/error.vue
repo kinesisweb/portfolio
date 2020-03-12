@@ -29,7 +29,11 @@ export default {
 	props: {
 		error: {
 			type: Object,
-			default: null
+			default: () => {
+				return {
+					statusCode: 404
+				};
+			}
 		}
 	},
 	data() {

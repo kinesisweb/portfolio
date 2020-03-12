@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const developer = express.Router();
 const common = require('../../lib/common');
@@ -28,6 +29,10 @@ developer.post('/api/contact', async (req, res) => {
 			console.log(err);
 			res.status(500).send('Error sending message');
 		});
+});
+
+developer.use('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../dist/404/index.html'));
 });
 
 module.exports = developer;
